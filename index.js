@@ -38,7 +38,7 @@ app.post("/user",getUser)
 
 app.put("/:email",updateProducts)
 
-app.put("/:email",updateTotal)
+app.put("/:id",updateTotal)
 
 app.post("/getTotal",(req,res)=> {
     User.find({email:req.body.email}).then(data=> {
