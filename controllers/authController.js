@@ -16,13 +16,31 @@ const createUser = (req,res,next) => {
 
         else {
 
-            const user = new User(req.body)
+            Menu.find().then(data => {
+
+                for(let i=0; i<data.length; i++) {
+                    data[i]._doc = {...data[i]._doc,quantity:0}
+
+                    console.log(data)
+                }
+
+
+                
+
+                req.body.products = data
+
+               
+
+                var user = new User(req.body)
 
             user.save()
 
             res.json({
                 status:"success",
                 message:"user created"
+            })
+
+
             })
 
 
