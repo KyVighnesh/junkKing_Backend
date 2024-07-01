@@ -5,6 +5,9 @@ const jwt = require("jsonwebtoken")
 
 const bcrypt = require("bcrypt")
 
+var Menu = require("../database/Schema/Menu")
+
+
 const createUser = (req,res,next) => {
 
     User.findOne({email:req.body.email}).then(data => {
